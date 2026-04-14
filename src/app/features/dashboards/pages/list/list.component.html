@@ -1,0 +1,227 @@
+<p-card class="dashboard">
+  <div class="grid adminPanel">
+    <div class="col-12 top pb-0 pt-3">
+      <!--logo-->
+      <div class="grid">
+        <div class="col-2 box-prime">
+          <div class="navbar-logo align-items-center justify-content-between pt-2 pb-1 pl-2">
+            <img src="assets/images/admin/ecuanticorp-logo.png" class="logo-empresa" alt="Ecuanticorp" height="25px" >
+            <a id="mobile-collapse" href="#" class="mobile-menu">
+              <i class="pi pi-bars"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-10 box-prime top-menu">
+           <!-- CONTENIDO DE SUPERIOR LOGIN, GLOBITO, ETC -->
+            <ul class="user-perfil">
+              <li>
+               <!--
+                <div class="notification">
+                  <div class="icon-pi"><i class="pi pi-bell"></i></div>
+                  <span class="nroNotification">5</span>
+                </div>-->
+              </li>
+              <li>
+                <!--
+                <div class="notification">
+                  <div class="icon-pi"><i class="pi pi-comment"></i></div>
+                  <span class="nroNotification green">5</span>
+                </div>-->
+              </li>
+              <li>
+                   <div class="item-perfil img"><img class="user-perfil-img" src="{{apiUrl+'..'+archivo}}"></div>
+                   <div class="item-perfil text"><menu-perfil  label="{{nombre}} {{apellido}}"></menu-perfil></div>
+
+              </li>
+            </ul>
+        </div>
+      </div>
+      <!--logo-->
+    </div>
+    <!--sidebar-->
+    <div class="col-2 sidebar">
+      <div class="navbar-menu">
+       <div class="col-12 navigation">Menú</div>
+       <div class="col-12 menu-link">
+         <menu-sidebar></menu-sidebar>
+       </div>
+      </div>
+    </div>
+    <!--sidebar-->
+    <div class="col-10 main p-1">
+      <div class="grid dashboard card4">
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><i class="pi pi-chart-line"></i></li>
+                    <li><span>Ventas en Agosto</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Monto facturas de ventas</span></li>
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><i class="pi pi-calendar-clock"></i></li>
+                    <li><span>Por cobrar</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Total de cuentas por cobra</span></li>
+
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><i class="pi pi-calendar-clock"></i></li>
+                    <li><span>Compras en Agosto</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Monto facturas de compras</span></li>
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><i class="pi pi-calendar-clock"></i></li>
+                    <li><span>Por pagar</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Total de cuentas por pagar</span></li>
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+
+      </div>
+      <div class="grid dashboard ventas">
+         <!--  item-->
+         <div class="col-9 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li><span><strong>Ventas de los últimos 12 meses</strong></span></li>
+                    <li>
+                    </li>
+                  </ul>
+                   <!--combo-->
+                   <div  class="p-field reporte_combo">
+                     <p-dropdown
+                       [options]="selected_reporte"
+                       optionLabel="label"
+                       optionValue="value"
+                       (onChange)="onChangeReporte($event,1)"
+                       placeholder="Seleccionar">
+                     </p-dropdown>
+                   </div>
+                   <!--combo-->
+                  <!--  lineal-->
+                  <div class="grid" *ngIf ="grafico[0].tipo === 'lineal' && grafico[0].num === 1">
+                    <div class="col-12">
+                      <chart-line></chart-line>
+                    </div>
+                  </div>
+                  <!-- barra-->
+                  <div class="grid" *ngIf ="grafico[0].tipo === 'barra' && grafico[0].num === 1">
+                    <div class="col-12">
+                      <chart-vertical-bar></chart-vertical-bar>
+                    </div>
+                  </div>
+           </div>
+         </div>
+         <!--  item-->
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><span><i class="pi pi-chart-line"></i></span></li>
+                    <li><span>Ventas de hoy</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Ventas de ayer</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+      </div>
+      <div class="grid dashboard compras">
+         <!--  item-->
+         <div class="col-9 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li><span><strong>Compras de los últimos 12 meses</strong></span></li>
+                    <li></li>
+                  </ul>
+                 <!--combo-->
+                 <div  class="p-field reporte_combo">
+                   <p-dropdown
+                     [options]="selected_reporte"
+                     optionLabel="label"
+                     optionValue="value"
+                     (onChange)="onChangeReporte($event,2)"
+                     placeholder="Seleccionar">
+                   </p-dropdown>
+                 </div>
+                 <!--combo-->
+                 <!--  lineal-->
+                 <div class="grid" *ngIf ="grafico2[0].tipo === 'lineal' && grafico2[0].num === 2">
+                   <div class="col-12">
+                     <chart-line></chart-line>
+                   </div>
+                 </div>
+                 <!-- barra-->
+                 <div class="grid" *ngIf ="grafico2[0].tipo === 'barra' && grafico2[0].num === 2">
+                   <div class="col-12">
+                     <chart-vertical-bar></chart-vertical-bar>
+                   </div>
+                 </div>
+           </div>
+         </div>
+         <!--  item-->
+         <!--  item-->
+         <div class="col-3 filtro">
+           <div class="e-card m-1">
+                  <ul>
+                    <li><span><i class="pi pi-shopping-cart"></i></span></li>
+                    <li><span>Compras de hoy</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                    <li><span>Compras de ayer</span></li>
+                    <li><span><strong>S/ 0.00</strong></span></li>
+                  </ul>
+           </div>
+         </div>
+         <!--  item-->
+      </div>
+
+    </div>
+  </div>
+  <!--NOVA-->
+  <div class="grid">
+    <!-- Sidebar - 20% en desktop, 100% en móvil -->
+    <div class="col-12 md:col-12 lg:col-6  pt-20 pb-20" >
+      <!-- Titulo -->
+
+    </div>
+    <!-- Main - 80% en desktop "maria click nueva venta" (espacio restante), 100% en móvil -->
+    <div class="col-12 md:col-12 lg:col-6 align-items-center justify-content-center pt-5 pb-5" >
+      <div class="w-full panel-menu  p-2 sm:p-3 md:p-4" style="box-sizing: border-box;">
+        <div class="grid">
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--NOVA-->
+</p-card>

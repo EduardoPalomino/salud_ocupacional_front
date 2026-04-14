@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "685b4b6b746adef48feabd9b"
+  },
+  "nombre": "Saori",
+  "apellido": "Yagui",
+  "email": "syagui@win.pe",
+  "password": "admin123",
+  "rol_id": {
+    "$oid": "67cd3f462b98c15b3b2e9b9c"
+  },
+  "created_at": {
+    "$date": "2025-06-25T01:05:47.746Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-25T01:05:47.746Z"
+  },
+  "__v": 0,
+  "archivo": "/uploads/1755879301701-1pf9f5v.jpg",
+  "key": "1"
+},
+{
+  "_id": {
+    "$oid": "67cd3ffb2b98c15b3b2e9ba1"
+  },
+  "nombre": "Eduardo",
+  "apellido": "Palomino",
+  "email": "admin@win.pe",
+  "password": "admin123",
+  "rol_id": {
+    "$oid": "67cd3f992b98c15b3b2e9b9f"
+  },
+  "created_at": {
+    "$date": "2025-03-09T07:15:07.481Z"
+  },
+  "updated_at": {
+    "$date": "2025-03-09T07:15:07.481Z"
+  },
+  "__v": 0,
+  "archivo": "/uploads/1755816682973-opaui74.jpg",
+  "key": "2"
+}]

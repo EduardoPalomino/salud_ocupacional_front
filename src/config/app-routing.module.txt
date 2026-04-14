@@ -1,0 +1,11 @@
+import { AccesoListComponent } from "./features/accesos/pages/list/list.component";
+import { EmpleadoListComponent } from "./features/empleados/pages/list/list.component";
+import { Empleado_archivoListComponent } from "./features/empleado_archivos/pages/list/list.component";
+import { Empleado_cargoListComponent } from "./features/empleado_cargos/pages/list/list.component";
+import { Empleado_estadoListComponent } from "./features/empleado_estados/pages/list/list.component";
+import { EmpresaListComponent } from "./features/empresas/pages/list/list.component";
+import { Examen_medicoListComponent } from "./features/examen_medicos/pages/list/list.component";
+import { Examen_resultadoListComponent } from "./features/examen_resultados/pages/list/list.component";
+import { PageListComponent } from "./features/pages/pages/list/list.component";
+import { RolListComponent } from "./features/rols/pages/list/list.component";
+import { UsuarioListComponent } from "./features/usuarios/pages/list/list.component";

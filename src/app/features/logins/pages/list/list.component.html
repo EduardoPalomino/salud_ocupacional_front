@@ -1,0 +1,98 @@
+<p-card class="dashboard">
+  <div class="flex grid">
+    <!-- Sidebar - 20% en desktop, 100% en móvil -->
+    <div class="col-12 md:col-12 lg:col-6 pt-20 pb-20">
+      <!-- Titulo -->
+      <div class="p-4 text-center border-round font-bold">
+        <p-image
+          src="./assets/images/web/dashboard.png"
+          alt="Dashboard"
+          width="100%"
+          height="auto"
+        />
+      </div>
+    </div>
+
+    <!-- Main - 80% en desktop "maria click nueva venta" (espacio restante), 100% en móvil -->
+    <div class="col-12 md:col-12 lg:col-6 flex align-items-center justify-content-center pt-5 pb-5">
+      <div class="w-full panel-menu p-2 sm:p-3 md:p-4" style="box-sizing: border-box;">
+        <!--login-->
+        <div class="login p-fluid">
+          <div class="p-grid p-justify-center p-nogutter">
+            <div class="p-col-12 p-md-6 p-lg-5">
+              <div class="p-card p-4 p-shadow-5" style="border: 1px solid var(--surface-border)">
+                <div class="p-card-body">
+                  <div class="p-d-flex p-jc-center">
+                    <h2 class="p-mb-4 p-text-uppercase">
+                      <i class="pi pi-lock p-mr-2"></i> Acceso al Sistema
+                    </h2>
+                  </div>
+                  <form [formGroup]="loginForm" >
+                    <div class="p-grid p-formgrid p-fluid">
+                    <!-- Campo Usuario -->
+                    <div class="p-field p-col-12 p-md-4 p-text-left p-text-md-right p-flex p-flex-column p-jc-center">
+                      <label for="email" class="p-mb-2 p-mb-md-0 p-text-bold" style="color: var(--text-color-secondary)">
+                        <i class="pi pi-user p-mr-2"></i> Usuario
+                      </label>
+                    </div>
+                    <div class="p-col-12 p-md-8 p-2">
+                      <span class="p-float-label">
+                        <input
+                          id="email"
+                          type="text"
+                          pInputText
+                          formControlName="email"
+                          class="p-inputtext-sm"
+                          style="border-radius: 20px"
+                        />
+                      </span>
+                    </div>
+
+                    <!-- Campo Contraseña -->
+                    <div class="p-field p-col-12 p-md-4 p-text-left p-text-md-right p-flex p-flex-column p-jc-center">
+                      <label for="password" class="p-mb-2 p-mb-md-0 p-text-bold" style="color: var(--text-color-secondary)">
+                        <i class="pi pi-key p-mr-2"></i> Contraseña
+                      </label>
+                    </div>
+                    <div class="p-col-12 p-md-8 p-2">
+                      <span class="p-float-label">
+                        <input
+                          id="password"
+                          type="password"
+                          pInputText
+                          formControlName="password"
+                          class="p-inputtext-sm"
+                          style="border-radius: 20px"
+                        />
+                      </span>
+                    </div>
+
+                    <!-- Botón de Login -->
+                    <div class="p-col-12 p-md-8 p-md-offset-4 p-mt-4 pt-2">
+                      <button
+                        pButton
+                        type="button"
+                        label="Ingresar"
+                        icon="pi pi-sign-in"
+                        class="p-button-raised p-button-primary p-button-sm"
+                        style="border-radius: 20px; width: 100%"
+                        (click)="login()"
+                      ></button>
+                    </div>
+                  </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--login-->
+      </div>
+    </div>
+
+    <!-- Componentes de PrimeNG -->
+    <p-toast></p-toast>
+    <p-confirmDialog></p-confirmDialog>
+  </div>
+</p-card>

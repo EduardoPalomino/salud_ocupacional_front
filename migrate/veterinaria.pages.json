@@ -1,0 +1,374 @@
+[{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4602"
+  },
+  "order": "7",
+  "ruta": "/admin/sexos",
+  "nombre": "sexos",
+  "descripcion": "sexos",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4608"
+  },
+  "order": "13",
+  "ruta": "/admin/compras",
+  "nombre": "compras",
+  "descripcion": "compras",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460e"
+  },
+  "order": "19",
+  "ruta": "/admin/pagos",
+  "nombre": "pagos",
+  "descripcion": "pagos",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f45fb"
+  },
+  "order": "0",
+  "ruta": "/admin/inventarios",
+  "nombre": "inventarios",
+  "descripcion": "inventarios",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.045Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.045Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4600"
+  },
+  "order": "5",
+  "ruta": "/admin/clientes",
+  "nombre": "clientes",
+  "descripcion": "clientes",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460a"
+  },
+  "order": "15",
+  "ruta": "/admin/ventas",
+  "nombre": "ventas",
+  "descripcion": "ventas",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460d"
+  },
+  "order": "18",
+  "ruta": "/admin/reportes",
+  "nombre": "reportes",
+  "descripcion": "reportes",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4609"
+  },
+  "order": "14",
+  "ruta": "/admin/detalle_compras",
+  "nombre": "detalle_compras",
+  "descripcion": "detalle_compras",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4606"
+  },
+  "order": "11",
+  "ruta": "/admin/categoria_productos",
+  "nombre": "categoria_productos",
+  "descripcion": "categoria_productos",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460b"
+  },
+  "order": "16",
+  "ruta": "/admin/detalle_ventas",
+  "nombre": "detalle_ventas",
+  "descripcion": "detalle_ventas",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460f"
+  },
+  "order": "20",
+  "ruta": "/admin/pages",
+  "nombre": "pages",
+  "descripcion": "pages",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4601"
+  },
+  "order": "6",
+  "ruta": "/admin/mascotas",
+  "nombre": "mascotas",
+  "descripcion": "mascotas",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f45fc"
+  },
+  "order": "1",
+  "ruta": "/admin/login",
+  "nombre": "login",
+  "descripcion": "login",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.046Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f45ff"
+  },
+  "order": "4",
+  "ruta": "/admin/rols",
+  "nombre": "rols",
+  "descripcion": "rols",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4603"
+  },
+  "order": "8",
+  "ruta": "/admin/especies",
+  "nombre": "especies",
+  "descripcion": "especies",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4605"
+  },
+  "order": "10",
+  "ruta": "/admin/proveedors",
+  "nombre": "proveedors",
+  "descripcion": "proveedors",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4607"
+  },
+  "order": "12",
+  "ruta": "/admin/productos",
+  "nombre": "productos",
+  "descripcion": "productos",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f45fe"
+  },
+  "order": "3",
+  "ruta": "/admin/dashboards",
+  "nombre": "dashboards",
+  "descripcion": "dashboards",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f45fd"
+  },
+  "order": "2",
+  "ruta": "/admin/users",
+  "nombre": "users",
+  "descripcion": "users",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4604"
+  },
+  "order": "9",
+  "ruta": "/admin/razas",
+  "nombre": "razas",
+  "descripcion": "razas",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f460c"
+  },
+  "order": "17",
+  "ruta": "/admin/historia_clinicas",
+  "nombre": "historia_clinicas",
+  "descripcion": "historia_clinicas",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845deb564657c4dc45f4610"
+  },
+  "order": "21",
+  "ruta": "/admin/accesos",
+  "nombre": "accesos",
+  "descripcion": "accesos",
+  "icon": "pi pi-users",
+  "created_at": {
+    "$date": "2025-06-08T19:04:21.049Z"
+  },
+  "updated_at": {
+    "$date": "2025-06-08T19:04:21.049Z"
+  },
+  "__v": 0
+}]

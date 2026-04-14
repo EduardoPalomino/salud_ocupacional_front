@@ -1,0 +1,25 @@
+ts-node ./src/generadores-mongo/generate-coleccion.ts Empresa
+ts-node ./src/generadores-mongo/generate-coleccion.ts Rol
+ts-node ./src/generadores-mongo/generate-coleccion.ts Usuario
+ts-node ./src/generadores-mongo/generate-coleccion.ts Page
+ts-node ./src/generadores-mongo/generate-coleccion.ts Acceso
+
+
+ts-node ./src/generadores-mongo/generate-coleccion.ts Cliente
+ts-node ./src/generadores-mongo/generate-coleccion.ts Sexo
+ts-node ./src/generadores-mongo/generate-coleccion.ts Especie
+ts-node ./src/generadores-mongo/generate-coleccion.ts Raza
+ts-node ./src/generadores-mongo/generate-coleccion.ts Mascota
+ts-node ./src/generadores-mongo/generate-coleccion.ts Proveedor
+ts-node ./src/generadores-mongo/generate-coleccion.ts Categoria_producto
+ts-node ./src/generadores-mongo/generate-coleccion.ts Producto
+ts-node ./src/generadores-mongo/generate-coleccion.ts Compra
+ts-node ./src/generadores-mongo/generate-coleccion.ts Venta
+ts-node ./src/generadores-mongo/generate-coleccion.ts Historia_clinica
+ts-node ./src/generadores-mongo/generate-coleccion.ts Reporte
+ts-node ./src/generadores-mongo/generate-coleccion.ts Pago
+ts-node ./src/generadores-mongo/generate-coleccion.ts Estado_cita
+ts-node ./src/generadores-mongo/generate-coleccion.ts Cita
+
+-------- FINAL -------------
+ts-node ./src/generadores-mongo/generate-postman.ts

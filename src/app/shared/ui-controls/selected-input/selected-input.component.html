@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label>{{ label }}</label>
+  <p-dropdown
+    [options]="selected"
+    formControlName="sexo_id"
+    optionLabel="label"
+    optionValue="value"
+    (onChange)="onSelectChange($event)"
+    placeholder="Seleccionar">
+  </p-dropdown>
+</div>

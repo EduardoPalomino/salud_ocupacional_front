@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "67d92e8823930a297ce529dc"
+  },
+  "descripcion": "Super admin",
+  "created_at": {
+    "$date": "2025-03-18T08:27:52.294Z"
+  },
+  "updated_at": {
+    "$date": "2025-03-18T08:27:52.294Z"
+  },
+  "__v": 0,
+  "key": "5",
+  "empresa_id": { "$oid": "68bbe526ef1dd15bca4c4cd0" }
+}]

@@ -1,0 +1,103 @@
+<p-card class="dashboard">
+  <div class="flex grid adminPanel">
+    <div class="col-12 top pb-0 pt-3">
+      <!--logo-->
+      <div class="grid">
+        <div class="col-2 box-prime">
+          <div class="navbar-logo flex align-items-center justify-content-between pt-2 pb-2 pl-2">
+            <img src="assets/images/admin/ecuanticorp-logo.png"  alt="Ecuanticorp" height="25px" >
+            <a id="mobile-collapse" href="#" class="mobile-menu">
+              <i class="pi pi-bars"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-10 box-prime">
+          <!-- CONTENIDO DE SUPERIOR LOGIN, GLOBITO, ETC -->
+          <ul class="user-perfil">
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+            <li>
+              <div class="item-perfil img"><img class="user-perfil-img" src="{{apiUrl+'..'+archivo}}"></div>
+              <div class="item-perfil text"><menu-perfil  label="{{nombre}} {{apellido}}"></menu-perfil></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--logo-->
+    </div>
+    <!--sidebar-->
+    <div class="col-2 sidebar">
+      <div class="navbar-menu">
+        <div class="col-12 navigation">Menú</div>
+        <div class="col-12 menu-link">
+          <menu-sidebar></menu-sidebar>
+        </div>
+      </div>
+    </div>
+
+    <!--sidebar-->
+    <div class="col-12 md:col-10 lg:col-10 main p-1">
+      <div class="grid dashboard card4">
+        <div class="col-12 md:col-12 lg:col-12 filtro">
+          <div class="e-card m-1">
+            <!--  filtro-->
+              <form [formGroup]="accesoForm">
+              <div class="panel-filtro  col-12" style="box-sizing: border-box;">
+                <div class="grid">
+                  <div class="col-2">
+                    <p-dropdown
+                      id="rol_id"
+                      [options]="selected_rol"
+                      formControlName="rol_id"
+                      optionLabel="label"
+                      optionValue="value"
+                      (onChange)="onChangeRol($event)"
+                      placeholder="Selecciona un rol">
+                    </p-dropdown>
+
+                  </div>
+                  <div class="col-3">
+                    <button pButton icon="pi pi-save" label="Guardar cambios"
+                            style="margin-left: 20px"
+                            class="p-button-sm p-button-outlined" (click)="saveRegistro()">
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--  filtro-->
+          </div>
+        </div>
+        <div class="col-12 md:col-12 lg:col-12 data">
+          <div class="e-card m-1">
+            <p-card>
+              <!--contenido-->
+                 <div class="grid">
+                <!-- LIST -->
+                <div *ngFor="let page of pages; let ind = index" class="col-3">
+                  <div id="page._id">
+                    <p-checkbox
+                      [inputId]="page._id"
+                      name="selectedPages"
+                      [value]="page"
+                      [(ngModel)]="selectedPages"
+                      (click)="checkedPage(page,ind)"
+                    ></p-checkbox>
+                    <label [for]="page._id" class="ml-2">{{ page.nombre | titlecase }}</label>
+                  </div>
+                </div>
+              </div>
+              <!--contenido-->
+            </p-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-card>
+

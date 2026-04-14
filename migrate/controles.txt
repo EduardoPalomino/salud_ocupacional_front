@@ -1,0 +1,4 @@
+ng generate component shared/ui-controls/menu-sidebar
+ng generate component shared/ui-controls/menu-perfil
+ng generate component shared/ui-controls/chart-line
+ng generate component shared/ui-controls/chart-vertical-bar

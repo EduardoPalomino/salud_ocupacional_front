@@ -1,0 +1,218 @@
+<p-card class="dashboard">
+  <div class="flex grid adminPanel">
+    <div class="col-12 top pb-0 pt-3">
+      <!--logo-->
+      <div class="grid">
+        <div class="col-2 box-prime">
+          <div class="navbar-logo flex align-items-center justify-content-between pt-2 pb-2 pl-2">
+            <img class="logo-empresa" src="assets/images/admin/ecuanticorp-logo.png"  alt="Ecuanticorp" height="25px" >
+            <a id="mobile-collapse" href="#" class="mobile-menu">
+              <i class="pi pi-bars"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-10 box-prime top-menu">
+          <!-- CONTENIDO DE SUPERIOR LOGIN, GLOBITO, ETC -->
+          <ul class="user-perfil">
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+            <li>
+                <div class="item-perfil img"><img class="user-perfil-img" src="{{apiUrl+'..'+archivo}}"></div>
+                <div class="item-perfil text"><menu-perfil  label="{{nombre}} {{apellido}}"></menu-perfil></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--logo-->
+    </div>
+    <!--sidebar-->
+    <div class="col-2 sidebar">
+      <div class="navbar-menu">
+        <div class="col-12 navigation">Navegación</div>
+        <div class="col-12 menu-link">
+          <menu-sidebar></menu-sidebar>
+        </div>
+      </div>
+    </div>
+
+    <!--sidebar-->
+    <div class="col-10 main p-1">
+      <div class="grid dashboard card4">
+        <div class="col-12 filtro">
+          <div class="e-card m-1">
+            <!--  filtro-->
+            <div class="p-datatable-header">
+              <h1>Gestión de Empleado_archivo</h1>
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div class="col-3">
+                  <span class="p-input-icon-left">
+                      <i class="pi pi-search"></i>
+                      <input
+                        pInputText
+                        type="text"
+                        placeholder="Búsqueda"
+                        class="p-inputtext p-component p-element w-full"
+                        [(ngModel)]="globalFilter"
+                        (keyup.enter)="filtrar(globalFilter)"
+                        (blur)="filtrar(globalFilter)">
+                    </span>
+                </div>
+                <div class="col-2">
+                  <button pButton icon="pi pi-user-plus" label="Nuevo Empleado_archivo"
+                          class="p-button-sm p-button-outlined btn_purple" (click)="openModal('Nuevo')">
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            <!--  filtro-->
+          </div>
+        </div>
+        <div class="col-12 data">
+           <div class="e-card m-1">
+              <p-card>
+            <!--contenido-->
+            <p-toast></p-toast>
+            <p-table #table [value]="empleado_archivos" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10, 20, 50, 100]"
+             [globalFilterFields]="['empleado_id','nombre_archivo','tipo_archivo','subido_por','empresa_id']" [responsiveLayout]="'scroll'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="key">Id </th>
+          <th pSortableColumn="empleado">Empleado </th>
+          <th pSortableColumn="nombre_archivo">Nombre_archivo </th>
+          <th pSortableColumn="tipo_archivo">Tipo_archivo </th>
+          <th pSortableColumn="subido_por">Subido_por </th>
+          <th pSortableColumn="empresa">Empresa </th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-empleado_archivo let-i="rowIndex">
+        <tr>
+          <td>{{ empleado_archivo.key }}</td>
+          <td>{{ empleado_archivo.empleado.nombre }}</td>
+          <td>nombre_<img class="myfileUpload" src="{{apiUrl+'..'+empleado_archivo.archivo}}" alt="empleado_archivo" width="10" height="15"></td>
+          <td>tipo_<img class="myfileUpload" src="{{apiUrl+'..'+empleado_archivo.archivo}}" alt="empleado_archivo" width="10" height="15"></td>
+          <td>{{ empleado_archivo.subido_por}}</td>
+          <td>{{ empleado_archivo.empresa.nombre }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="p-button-text p-button-sm p-button-warning" (click)="openModal('Editar', empleado_archivo)"></button>
+            <button pButton icon="pi pi-trash" class="p-button-text p-button-sm p-button-danger" (click)="confirmarEliminacion(empleado_archivo)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+            <!-- Paginación personalizada -->
+            <div class="pagination-container">
+  <button (click)="onPageChange(1)" [disabled]="pagination.currentPage === 1" class="pagination-button">
+    <i class="pi pi-angle-double-left"></i>
+  </button>
+  <button (click)="onPageChange(pagination.currentPage - 1)" [disabled]="pagination.currentPage === 1" class="pagination-button">
+    <i class="pi pi-angle-left"></i>
+  </button>
+
+  <span class="pagination-info">
+    Página {{ pagination.currentPage }} de {{ pagination.totalPages }}
+  </span>
+
+  <button (click)="onPageChange(pagination.currentPage + 1)" [disabled]="pagination.currentPage === pagination.totalPages" class="pagination-button">
+    <i class="pi pi-angle-right"></i>
+  </button>
+  <button (click)="onPageChange(pagination.totalPages)" [disabled]="pagination.currentPage === pagination.totalPages" class="pagination-button">
+    <i class="pi pi-angle-double-right"></i>
+  </button>
+
+</div>
+            <!-- end Paginación personalizada -->
+            <!-- Confirmation -->
+            <p-confirmDialog></p-confirmDialog>
+            <!-- Confirmation -->
+            <!-- Modal -->
+            <p-dialog [(visible)]="modalVisible" [header]="modalTitle" [modal]="true" [closable]="true" [style]="{width: '500px'}">
+              <form [formGroup]="empleado_archivoForm" >
+                <div class="p-fluid">
+
+
+
+                <div class="p-field"><label>Subido_por</label>
+                <input pInputText id="subido_porInput" formControlName="subido_por" />
+                </div>
+                  <input pInputText id="_idInput" formControlName="_id" [hidden]="true"  />
+                    <!--Archivo-->
+                  <div class="p-field col-12">
+                    <label>Archivo</label>
+                    <div  class="flex flex-column gap-2">
+                      <!-- Input de PrimeNG para subir archivos -->
+                      <p-fileUpload
+                        #fileUploadRef
+                        mode="basic"
+                        name="file"
+                        chooseLabel="Seleccionar Archivo"
+                        accept="image/*"
+                        (onSelect)="onFileSelect($event)"
+                        [auto]="false"
+                        [showUploadButton]="false"
+                        [showCancelButton]="false"
+                      ></p-fileUpload>
+                      <!-- Previsualización de la imagen -->
+                      <div *ngIf="previewImage" class="mt-2">
+                        <p-image
+                          [src]="previewImage"
+                          alt="Previsualización"
+                          width="70"
+                          height="90"
+                          [preview]="true"
+                          class="shadow-2 border-round"
+                        ></p-image>
+                      </div>
+                      <!-- Mostrar la URL de la imagen guardada -->
+                      <div *ngIf="!previewImage" class="mt-2">
+                        <img class="myfileUpload" src="{{apiUrl+'..'+empleado_archivoForm.get('archivo')?.value}}" alt="empleado_archivo" width="70" height="90">
+                      </div>
+                    </div>
+                  </div>
+                  <!--Archivo-->
+                    <div class="p-field">
+                      <label for="empleado_id">Empleado</label>
+                      <p-dropdown
+                        id="empleado_id"
+                        [options]="selected_empleado"
+                        formControlName="empleado_id"
+                        optionLabel="label"
+                        optionValue="value"
+                        (onChange)="onChangeEmpleado($event)"
+                        placeholder="Selecciona un empleado">
+                      </p-dropdown>
+                    </div>
+      <div class="p-field">
+                      <label for="empresa_id">Empresa</label>
+                      <p-dropdown
+                        id="empresa_id"
+                        [options]="selected_empresa"
+                        formControlName="empresa_id"
+                        optionLabel="label"
+                        optionValue="value"
+                        (onChange)="onChangeEmpresa($event)"
+                        placeholder="Selecciona un empresa">
+                      </p-dropdown>
+                    </div>
+                </div>
+                <div class="p-dialog-footer">
+                  <button pButton type="button" label="Cancelar" class="p-button-text btn_purple" (click)="modalVisible = false"></button>
+                  <button pButton type="button" label="Guardar" class="p-button-text btn_purple" (click)="saveRegistro()"></button>
+                </div>
+              </form>
+            </p-dialog>
+            <!-- Modal -->
+            <!--contenido-->
+          </p-card>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-card>

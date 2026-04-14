@@ -1,0 +1,41 @@
+<!--<p-table #table [value]="datos" [paginator]="false" [rows]="10"
+         [globalFilterFields]="filtro" [responsiveLayout]="'scroll'">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of head" pSortableColumn="{{col}}">
+        {{ col | titlecase }}
+      </th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dato let-i="rowIndex">
+    <tr>
+      <td *ngFor="let col of head">
+        {{ dato[col] }}
+      </td>
+      <td>
+        <button pButton icon="pi pi-pencil" class="p-button-text p-button-sm p-button-warning" (click)="openModal('Editar', dato)"></button>
+        <button pButton icon="pi pi-trash" class="p-button-text p-button-sm p-button-danger" (click)="confirmarEliminacion(dato)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+&lt;!&ndash; Paginación personalizada &ndash;&gt;
+<div class="pagination-container">
+  <button (click)="onPageChange(1)" [disabled]="pagination.currentPage === 1" class="pagination-button">
+    <i class="pi pi-angle-double-left"></i>
+  </button>
+  <button (click)="onPageChange(pagination.currentPage - 1)" [disabled]="pagination.currentPage === 1" class="pagination-button">
+    <i class="pi pi-angle-left"></i>
+  </button>
+  <span class="pagination-info">
+    Página {{ pagination.currentPage }} de {{ pagination.totalPages }}
+  </span>
+  <button (click)="onPageChange(pagination.currentPage + 1)" [disabled]="pagination.currentPage === pagination.totalPages" class="pagination-button">
+    <i class="pi pi-angle-right"></i>
+  </button>
+  <button (click)="onPageChange(pagination.totalPages)" [disabled]="pagination.currentPage === pagination.totalPages" class="pagination-button">
+    <i class="pi pi-angle-double-right"></i>
+  </button>
+</div>-->
+<!-- end Paginación personalizada -->
