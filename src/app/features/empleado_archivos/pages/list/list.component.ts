@@ -56,7 +56,7 @@ export class Empleado_archivoListComponent implements OnInit {
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
         private empleadoService: EmpleadoService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
@@ -218,7 +218,7 @@ export class Empleado_archivoListComponent implements OnInit {
     confirmarEliminacion(empleado_archivo: Empleado_archivo) {
         console.log("Clic en eliminar:", empleado_archivo);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Empleado_archivo: ${empleado_archivo.empleado_id}?`,
+            message: `¿Estás seguro de eliminar el Empleado_archivo: ${empleado_archivo.empleado._id}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -236,7 +236,7 @@ export class Empleado_archivoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Empleado_archivo "${empleado_archivo.empleado_id}" eliminado correctamente`
+                    detail: `Empleado_archivo "${empleado_archivo.empleado._id}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -244,7 +244,7 @@ export class Empleado_archivoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el empleado_archivo "${empleado_archivo.empleado_id}"`
+                    detail: `No se pudo eliminar el empleado_archivo "${empleado_archivo.empleado._id}"`
                 });
             }
         });
@@ -328,7 +328,7 @@ export class Empleado_archivoListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Empleado_archivo "${empleado_archivo.empleado_id}" ${mensaje}`
+            detail: `Empleado_archivo "${empleado_archivo.empleado._id}" ${mensaje}`
         });
     }
 

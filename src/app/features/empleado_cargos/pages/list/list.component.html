@@ -78,11 +78,11 @@
             <!--contenido-->
             <p-toast></p-toast>
             <p-table #table [value]="empleado_cargos" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10, 20, 50, 100]"
-             [globalFilterFields]="['nombre','empresa_id']" [responsiveLayout]="'scroll'">
+             [globalFilterFields]="['descripcion','empresa_id']" [responsiveLayout]="'scroll'">
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="key">Id </th>
-          <th pSortableColumn="nombre">nombre </th>
+          <th pSortableColumn="descripcion">Descripcion </th>
           <th pSortableColumn="empresa">Empresa </th>
           <th>Acciones</th>
         </tr>
@@ -91,7 +91,7 @@
       <ng-template pTemplate="body" let-empleado_cargo let-i="rowIndex">
         <tr>
           <td>{{ empleado_cargo.key }}</td>
-          <td>{{ empleado_cargo.nombre}}</td>
+          <td>{{ empleado_cargo.descripcion}}</td>
           <td>{{ empleado_cargo.empresa.nombre }}</td>
           <td>
             <button pButton icon="pi pi-pencil" class="p-button-text p-button-sm p-button-warning" (click)="openModal('Editar', empleado_cargo)"></button>
@@ -130,8 +130,8 @@
               <form [formGroup]="empleado_cargoForm" >
                 <div class="p-fluid">
 
-                <div class="p-field"><label>nombre</label>
-                <input pInputText id="nombreInput" formControlName="nombre" />
+                <div class="p-field"><label>Descripcion</label>
+                <input pInputText id="descripcionInput" formControlName="descripcion" />
                 </div>
                   <input pInputText id="_idInput" formControlName="_id" [hidden]="true"  />
 

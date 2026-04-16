@@ -5,7 +5,7 @@ import { Empresa } from '../../empresas/interfaces/empresa.interface';
   order: string;
   ruta: string;
   nombre: string;
-  nombre: string;
+  descripcion: string;
   icon: string;
   empresa: Empresa;
   created_at: string;

@@ -51,7 +51,7 @@ export class PageListComponent implements OnInit {
         private pageService: PageService,
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
@@ -61,7 +61,7 @@ export class PageListComponent implements OnInit {
             order: ['', Validators.required],
             ruta: ['', Validators.required],
             nombre: ['', Validators.required],
-            nombre: ['', Validators.required],
+            descripcion: ['', Validators.required],
             icon: ['', Validators.required],
             empresa_id: [this.empresa_id, Validators.required]
         });
@@ -187,7 +187,7 @@ export class PageListComponent implements OnInit {
                 order: page.order,
                 ruta: page.ruta,
                 nombre: page.nombre,
-                nombre: page.nombre,
+                descripcion: page.descripcion,
                 icon: page.icon,
                 empresa_id: page.empresa._id
             });

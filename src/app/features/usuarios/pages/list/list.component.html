@@ -103,7 +103,7 @@
           <td>{{ usuario.user}}</td>
           <td>{{ usuario.password}}</td>
           <td><img class="myfileUpload" src="{{apiUrl+'..'+usuario.archivo}}" alt="usuario" width="10" height="15"></td>
-          <td>{{ usuario.rol.nombre }}</td>
+          <td>{{ usuario.rol.descripcion }}</td>
           <td>{{ usuario.empresa.nombre }}</td>
           <td>
             <button pButton icon="pi pi-pencil" class="p-button-text p-button-sm p-button-warning" (click)="openModal('Editar', usuario)"></button>

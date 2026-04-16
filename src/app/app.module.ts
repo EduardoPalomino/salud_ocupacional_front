@@ -11,16 +11,17 @@ import { DashboardsModule } from './features/dashboards/dashboards.module';
 import {LoginsModule} from "./features/logins/logins.module";
 import {AccesosModule} from "./features/accesos/accesos.module";
 
-import { EmpresasModule } from "./features/empresas/empresas.module";
-import { RolsModule } from "./features/rols/rols.module";
-import { PagesModule } from "./features/pages/pages.module";
-import { UsuariosModule } from "./features/usuarios/usuarios.module";
-import { Empleado_estadosModule } from "./features/empleado_estados/empleado_estados.module";
-import { Empleado_cargosModule } from "./features/empleado_cargos/empleado_cargos.module";
-import { EmpleadosModule } from "./features/empleados/empleados.module";
+
 import { Empleado_archivosModule } from "./features/empleado_archivos/empleado_archivos.module";
+import { Empleado_cargosModule } from "./features/empleado_cargos/empleado_cargos.module";
+import { Empleado_estadosModule } from "./features/empleado_estados/empleado_estados.module";
+import { EmpleadosModule } from "./features/empleados/empleados.module";
+import { EmpresasModule } from "./features/empresas/empresas.module";
 import { Examen_medicosModule } from "./features/examen_medicos/examen_medicos.module";
 import { Examen_resultadosModule } from "./features/examen_resultados/examen_resultados.module";
+import { PagesModule } from "./features/pages/pages.module";
+import { RolsModule } from "./features/rols/rols.module";
+import { UsuariosModule } from "./features/usuarios/usuarios.module";
 
 @NgModule({
   declarations: [

@@ -7,7 +7,7 @@ export class PageModel implements Page {
   order= '';
   ruta= '';
   nombre= '';
-  nombre= '';
+  descripcion= '';
   icon= '';
   empresa: Empresa= {} as Empresa;
   created_at = '';

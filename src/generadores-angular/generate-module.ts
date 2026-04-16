@@ -417,7 +417,7 @@ ${loadInitFields}
   confirmarEliminacion(${name}: ${className}) {
     console.log("Clic en eliminar:", ${name});
     this.confirmationService.confirm({
-      message: \`¿Estás seguro de eliminar el ${className}: \${${name}.${fields[0]}}?\`,
+      message: \`¿Estás seguro de eliminar el ${className}: \${${name}.${fields[0].replace('_id', '._id')}}?\`,
       header: 'Confirmación',
       icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Sí',
@@ -514,7 +514,7 @@ function generateListsContent(name: string, fields: string[]): string {
     .filter(field => field.endsWith('_id'))
     .map(field => {
       const cleanField = field.replace('_id', '');
-      return `import { ${capitalize(cleanField)}Service } from '../../../${cleanField}s/services/${cleanField}.service';`;
+      return `import { ${capitalize(cleanField)}Service } from '../../../${cleanField}s/services/${cleanField}.service,';`;
     })
     .join('\n');
 
@@ -546,7 +546,7 @@ function generateListsContent(name: string, fields: string[]): string {
     .filter(field => field.endsWith('_id'))
     .map(field => {
       const cleanField = field.replace('_id', '');
-      return `private ${cleanField}Service: ${capitalize(cleanField)}Service`;
+      return `private ${cleanField}Service: ${capitalize(cleanField)}Service,`;
     })
     .join(',\n        ');
 
@@ -910,7 +910,7 @@ ${loadInitFields}
     confirmarEliminacion(${name}: ${className}) {
         console.log("Clic en eliminar:", ${name});
         this.confirmationService.confirm({
-            message: \`¿Estás seguro de eliminar el ${className}: \${${name}.${fields[0]}}?\`,
+            message: \`¿Estás seguro de eliminar el ${className}: \${${name}.${fields[0].replace('_id', '._id')}}?\`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -928,7 +928,7 @@ ${loadInitFields}
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: \`${className} "\${${name}.${fields[0]}}" eliminado correctamente\`
+                    detail: \`${className} "\${${name}.${fields[0].replace('_id', '._id')}}" eliminado correctamente\`
                 });
             },
             error: (err) => {
@@ -936,7 +936,7 @@ ${loadInitFields}
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: \`No se pudo eliminar el ${name} "\${${name}.${fields[0]}}"\`
+                    detail: \`No se pudo eliminar el ${name} "\${${name}.${fields[0].replace('_id', '._id')}}"\`
                 });
             }
         });
@@ -953,11 +953,11 @@ ${selectedCalendarFields}
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: \`${className} "\${${name}.${fields[0]}}" \${mensaje}\`
+            detail: \`${className} "\${${name}.${fields[0].replace('_id', '._id')}}" \${mensaje}\`
         });
     }
 
-  formatDate(isoString: string): string {
+  formatDate(isoString: Date): string {
     const date = new Date(isoString);
     return new Intl.DateTimeFormat('es-PE', {
       day: '2-digit',

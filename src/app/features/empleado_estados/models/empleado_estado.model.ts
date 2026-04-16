@@ -4,7 +4,7 @@ import { Empleado_estado } from '../interfaces/empleado_estado.interface';
 export class Empleado_estadoModel implements Empleado_estado {
   _id = '';
   key:number = 0;
-  nombre= '';
+  descripcion= '';
   color= '';
   empresa: Empresa= {} as Empresa;
   created_at = '';

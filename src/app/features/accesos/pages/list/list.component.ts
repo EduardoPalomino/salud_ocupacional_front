@@ -106,7 +106,7 @@ export class AccesoListComponent implements OnInit {
         if(data && data.response){
           this.rols = data.response;
           this.selected_rol = this.rols.map(rol => ({
-            label: rol.nombre,
+            label: rol.descripcion,
             value: rol._id
           }));
         }
@@ -127,7 +127,6 @@ export class AccesoListComponent implements OnInit {
               _id:d._id,
               order: d.order,
               ruta: d.ruta,
-              nombre: d.nombre,
               nombre: d.nombre,
               icon:  d.icon,
               checked: false,

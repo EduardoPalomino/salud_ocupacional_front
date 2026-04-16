@@ -121,7 +121,7 @@ export class UsuarioListComponent implements OnInit {
             next: (data:any) => {
                 this.rols = data.response;
                 this.selected_rol = this.rols.map(rol => ({
-                    label: rol.nombre,
+                    label: rol.descripcion,
                     value: rol._id
                 }));
             },

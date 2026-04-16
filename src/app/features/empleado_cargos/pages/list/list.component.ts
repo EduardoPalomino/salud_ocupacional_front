@@ -51,14 +51,14 @@ export class Empleado_cargoListComponent implements OnInit {
         private empleado_cargoService: Empleado_cargoService,
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
     ) {
         this.empleado_cargoForm = this.fb.group({
             _id: [null],
-            nombre: ['', Validators.required],
+            descripcion: ['', Validators.required],
             empresa_id: [this.empresa_id, Validators.required]
         });
     }
@@ -180,7 +180,7 @@ export class Empleado_cargoListComponent implements OnInit {
         if (mode === 'Editar' && empleado_cargo) {
             this.empleado_cargoForm.patchValue({
                 _id: empleado_cargo._id,
-                nombre: empleado_cargo.nombre,
+                descripcion: empleado_cargo.descripcion,
                 empresa_id: empleado_cargo.empresa._id
             });
         } else {
@@ -191,7 +191,7 @@ export class Empleado_cargoListComponent implements OnInit {
     confirmarEliminacion(empleado_cargo: Empleado_cargo) {
         console.log("Clic en eliminar:", empleado_cargo);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Empleado_cargo: ${empleado_cargo.nombre}?`,
+            message: `¿Estás seguro de eliminar el Empleado_cargo: ${empleado_cargo.descripcion}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -209,7 +209,7 @@ export class Empleado_cargoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Empleado_cargo "${empleado_cargo.nombre}" eliminado correctamente`
+                    detail: `Empleado_cargo "${empleado_cargo.descripcion}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -217,7 +217,7 @@ export class Empleado_cargoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el empleado_cargo "${empleado_cargo.nombre}"`
+                    detail: `No se pudo eliminar el empleado_cargo "${empleado_cargo.descripcion}"`
                 });
             }
         });
@@ -269,7 +269,7 @@ export class Empleado_cargoListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Empleado_cargo "${empleado_cargo.nombre}" ${mensaje}`
+            detail: `Empleado_cargo "${empleado_cargo.descripcion}" ${mensaje}`
         });
     }
 

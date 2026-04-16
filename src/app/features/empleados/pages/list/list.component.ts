@@ -61,7 +61,7 @@ export class EmpleadoListComponent implements OnInit {
         private messageService: MessageService,
         private empleado_cargoService: Empleado_cargoService,
         private empleado_estadoService: Empleado_estadoService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
@@ -128,7 +128,7 @@ export class EmpleadoListComponent implements OnInit {
             next: (data:any) => {
                 this.empleado_cargos = data.response;
                 this.selected_empleado_cargo = this.empleado_cargos.map(empleado_cargo => ({
-                    label: empleado_cargo.nombre,
+                    label: empleado_cargo.descripcion,
                     value: empleado_cargo._id
                 }));
             },
@@ -143,7 +143,7 @@ export class EmpleadoListComponent implements OnInit {
             next: (data:any) => {
                 this.empleado_estados = data.response;
                 this.selected_empleado_estado = this.empleado_estados.map(empleado_estado => ({
-                    label: empleado_estado.nombre,
+                    label: empleado_estado.descripcion,
                     value: empleado_estado._id
                 }));
             },
@@ -343,7 +343,7 @@ export class EmpleadoListComponent implements OnInit {
         });
     }
 
-  formatDate(isoString: string): string {
+  formatDate(isoString: Date): string {
     const date = new Date(isoString);
     return new Intl.DateTimeFormat('es-PE', {
       day: '2-digit',

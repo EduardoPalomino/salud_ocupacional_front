@@ -4,7 +4,7 @@ import { Rol } from '../interfaces/rol.interface';
 export class RolModel implements Rol {
   _id = '';
   key:number = 0;
-  nombre= '';
+  descripcion= '';
   empresa: Empresa= {} as Empresa;
   created_at = '';
   updated_at = '';

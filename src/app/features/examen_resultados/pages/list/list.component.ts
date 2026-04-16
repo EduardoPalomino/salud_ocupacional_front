@@ -56,7 +56,7 @@ export class Examen_resultadoListComponent implements OnInit {
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
         private examen_medicoService: Examen_medicoService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
@@ -117,7 +117,7 @@ export class Examen_resultadoListComponent implements OnInit {
             next: (data:any) => {
                 this.examen_medicos = data.response;
                 this.selected_examen_medico = this.examen_medicos.map(examen_medico => ({
-                    label: examen_medico.nombre,
+                    label: examen_medico.empleado.nombre,
                     value: examen_medico._id
                 }));
             },
@@ -216,7 +216,7 @@ export class Examen_resultadoListComponent implements OnInit {
     confirmarEliminacion(examen_resultado: Examen_resultado) {
         console.log("Clic en eliminar:", examen_resultado);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Examen_resultado: ${examen_resultado.examen_medico_id}?`,
+            message: `¿Estás seguro de eliminar el Examen_resultado: ${examen_resultado.examen_medico._id}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -234,7 +234,7 @@ export class Examen_resultadoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Examen_resultado "${examen_resultado.examen_medico_id}" eliminado correctamente`
+                    detail: `Examen_resultado "${examen_resultado.examen_medico._id}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -242,7 +242,7 @@ export class Examen_resultadoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el examen_resultado "${examen_resultado.examen_medico_id}"`
+                    detail: `No se pudo eliminar el examen_resultado "${examen_resultado.examen_medico._id}"`
                 });
             }
         });
@@ -298,7 +298,7 @@ export class Examen_resultadoListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Examen_resultado "${examen_resultado.examen_medico_id}" ${mensaje}`
+            detail: `Examen_resultado "${examen_resultado.examen_medico._id}" ${mensaje}`
         });
     }
 

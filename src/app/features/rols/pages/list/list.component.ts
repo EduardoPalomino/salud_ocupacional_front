@@ -51,14 +51,14 @@ export class RolListComponent implements OnInit {
         private rolService: RolService,
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
     ) {
         this.rolForm = this.fb.group({
             _id: [null],
-            nombre: ['', Validators.required],
+            descripcion: ['', Validators.required],
             empresa_id: [this.empresa_id, Validators.required]
         });
     }
@@ -180,7 +180,7 @@ export class RolListComponent implements OnInit {
         if (mode === 'Editar' && rol) {
             this.rolForm.patchValue({
                 _id: rol._id,
-                nombre: rol.nombre,
+                descripcion: rol.descripcion,
                 empresa_id: rol.empresa._id
             });
         } else {
@@ -191,7 +191,7 @@ export class RolListComponent implements OnInit {
     confirmarEliminacion(rol: Rol) {
         console.log("Clic en eliminar:", rol);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Rol: ${rol.nombre}?`,
+            message: `¿Estás seguro de eliminar el Rol: ${rol.descripcion}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -209,7 +209,7 @@ export class RolListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Rol "${rol.nombre}" eliminado correctamente`
+                    detail: `Rol "${rol.descripcion}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -217,7 +217,7 @@ export class RolListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el rol "${rol.nombre}"`
+                    detail: `No se pudo eliminar el rol "${rol.descripcion}"`
                 });
             }
         });
@@ -269,7 +269,7 @@ export class RolListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Rol "${rol.nombre}" ${mensaje}`
+            detail: `Rol "${rol.descripcion}" ${mensaje}`
         });
     }
 

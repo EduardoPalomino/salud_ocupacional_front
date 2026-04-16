@@ -56,7 +56,7 @@ export class Examen_medicoListComponent implements OnInit {
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
         private empleadoService: EmpleadoService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
@@ -220,7 +220,7 @@ export class Examen_medicoListComponent implements OnInit {
     confirmarEliminacion(examen_medico: Examen_medico) {
         console.log("Clic en eliminar:", examen_medico);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Examen_medico: ${examen_medico.empleado_id}?`,
+            message: `¿Estás seguro de eliminar el Examen_medico: ${examen_medico.empleado._id}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -238,7 +238,7 @@ export class Examen_medicoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Examen_medico "${examen_medico.empleado_id}" eliminado correctamente`
+                    detail: `Examen_medico "${examen_medico.empleado._id}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -246,7 +246,7 @@ export class Examen_medicoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el examen_medico "${examen_medico.empleado_id}"`
+                    detail: `No se pudo eliminar el examen_medico "${examen_medico.empleado._id}"`
                 });
             }
         });
@@ -308,7 +308,7 @@ export class Examen_medicoListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Examen_medico "${examen_medico.empleado_id}" ${mensaje}`
+            detail: `Examen_medico "${examen_medico.empleado._id}" ${mensaje}`
         });
     }
 

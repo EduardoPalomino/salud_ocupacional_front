@@ -94,7 +94,7 @@
       <ng-template pTemplate="body" let-empleado_archivo let-i="rowIndex">
         <tr>
           <td>{{ empleado_archivo.key }}</td>
-          <td>{{ empleado_archivo.empleado.nombre }}</td>
+          <td>{{ empleado_archivo.empleado.descripcion }}</td>
           <td>nombre_<img class="myfileUpload" src="{{apiUrl+'..'+empleado_archivo.archivo}}" alt="empleado_archivo" width="10" height="15"></td>
           <td>tipo_<img class="myfileUpload" src="{{apiUrl+'..'+empleado_archivo.archivo}}" alt="empleado_archivo" width="10" height="15"></td>
           <td>{{ empleado_archivo.subido_por}}</td>

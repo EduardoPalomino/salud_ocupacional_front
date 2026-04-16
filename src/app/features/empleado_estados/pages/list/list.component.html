@@ -78,11 +78,11 @@
             <!--contenido-->
             <p-toast></p-toast>
             <p-table #table [value]="empleado_estados" [paginator]="false" [rows]="10" [rowsPerPageOptions]="[10, 20, 50, 100]"
-             [globalFilterFields]="['nombre','color','empresa_id']" [responsiveLayout]="'scroll'">
+             [globalFilterFields]="['descripcion','color','empresa_id']" [responsiveLayout]="'scroll'">
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="key">Id </th>
-          <th pSortableColumn="nombre">nombre </th>
+          <th pSortableColumn="descripcion">Descripcion </th>
           <th pSortableColumn="color">Color </th>
           <th pSortableColumn="empresa">Empresa </th>
           <th>Acciones</th>
@@ -92,7 +92,7 @@
       <ng-template pTemplate="body" let-empleado_estado let-i="rowIndex">
         <tr>
           <td>{{ empleado_estado.key }}</td>
-          <td>{{ empleado_estado.nombre}}</td>
+          <td>{{ empleado_estado.descripcion}}</td>
           <td>{{ empleado_estado.color}}</td>
           <td>{{ empleado_estado.empresa.nombre }}</td>
           <td>
@@ -132,8 +132,8 @@
               <form [formGroup]="empleado_estadoForm" >
                 <div class="p-fluid">
 
-                <div class="p-field"><label>nombre</label>
-                <input pInputText id="nombreInput" formControlName="nombre" />
+                <div class="p-field"><label>Descripcion</label>
+                <input pInputText id="descripcionInput" formControlName="descripcion" />
                 </div>
 
                 <div class="p-field"><label>Color</label>

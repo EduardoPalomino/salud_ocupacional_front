@@ -51,14 +51,14 @@ export class Empleado_estadoListComponent implements OnInit {
         private empleado_estadoService: Empleado_estadoService,
         private confirmationService: ConfirmationService,
         private messageService: MessageService,
-        private empresaService: EmpresaService
+        private empresaService: EmpresaService,
         private permissionService:PermissionService,
         private router: Router,
         private http: HttpClient
     ) {
         this.empleado_estadoForm = this.fb.group({
             _id: [null],
-            nombre: ['', Validators.required],
+            descripcion: ['', Validators.required],
             color: ['', Validators.required],
             empresa_id: [this.empresa_id, Validators.required]
         });
@@ -181,7 +181,7 @@ export class Empleado_estadoListComponent implements OnInit {
         if (mode === 'Editar' && empleado_estado) {
             this.empleado_estadoForm.patchValue({
                 _id: empleado_estado._id,
-                nombre: empleado_estado.nombre,
+                descripcion: empleado_estado.descripcion,
                 color: empleado_estado.color,
                 empresa_id: empleado_estado.empresa._id
             });
@@ -193,7 +193,7 @@ export class Empleado_estadoListComponent implements OnInit {
     confirmarEliminacion(empleado_estado: Empleado_estado) {
         console.log("Clic en eliminar:", empleado_estado);
         this.confirmationService.confirm({
-            message: `¿Estás seguro de eliminar el Empleado_estado: ${empleado_estado.nombre}?`,
+            message: `¿Estás seguro de eliminar el Empleado_estado: ${empleado_estado.descripcion}?`,
             header: 'Confirmación',
             icon: 'pi pi-exclamation-triangle',
             acceptLabel: 'Sí',
@@ -211,7 +211,7 @@ export class Empleado_estadoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Éxito',
-                    detail: `Empleado_estado "${empleado_estado.nombre}" eliminado correctamente`
+                    detail: `Empleado_estado "${empleado_estado.descripcion}" eliminado correctamente`
                 });
             },
             error: (err) => {
@@ -219,7 +219,7 @@ export class Empleado_estadoListComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: `No se pudo eliminar el empleado_estado "${empleado_estado.nombre}"`
+                    detail: `No se pudo eliminar el empleado_estado "${empleado_estado.descripcion}"`
                 });
             }
         });
@@ -271,7 +271,7 @@ export class Empleado_estadoListComponent implements OnInit {
         this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: `Empleado_estado "${empleado_estado.nombre}" ${mensaje}`
+            detail: `Empleado_estado "${empleado_estado.descripcion}" ${mensaje}`
         });
     }
 
