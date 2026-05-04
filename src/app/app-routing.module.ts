@@ -85,7 +85,7 @@ const routes: Routes = [
         component: RolListComponent
       },
       {
-        path: 'usuarios',
+        path: 'users',
         component: UsuarioListComponent
       }
 

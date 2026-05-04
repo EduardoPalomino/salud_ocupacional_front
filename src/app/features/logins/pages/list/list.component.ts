@@ -52,8 +52,8 @@ export class LoginListComponent implements OnInit {
       console.log(JSON.stringify(login+'DATOS DE FORM'));
         this.usuarioService.login(login).subscribe({
           next: (data:any) => {
-            console.log(JSON.stringify(data+'RESPUESTA'));
-            console.log('Login  éxitoso:', JSON.stringify(data));
+            console.log(JSON.stringify(data+'--RESPUESTA----'));
+            console.log('Login  éxitoso DATA ES :', JSON.stringify(data));
             sessionStorage.setItem('nombre', data.user.nombre);
             sessionStorage.setItem('apellido', data.user.apellido);
             sessionStorage.setItem('email', data.user.email);

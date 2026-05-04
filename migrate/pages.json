@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "69f41c128cdba3ffd609b563"
+  },
+  "key": 1,
+  "order": "1",
+  "ruta": "/admin/pages",
+  "nombre": "pages",
+  "descripcion": "pages",
+  "icon": "pi pi-users",
+  "empresa_id": {
+    "$oid": "69db63e27ee6168f283c87a1"
+  },
+  "created_at": {
+    "$date": "2026-05-01T03:20:50.676Z"
+  },
+  "updated_at": {
+    "$date": "2026-05-01T03:20:50.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f41c608cdba3ffd609b568"
+  },
+  "key": 2,
+  "order": "2",
+  "ruta": "/admin/rols",
+  "nombre": "rols",
+  "descripcion": "rols",
+  "icon": "pi pi-users",
+  "empresa_id": {
+    "$oid": "69db63e27ee6168f283c87a1"
+  },
+  "created_at": {
+    "$date": "2026-05-01T03:22:08.526Z"
+  },
+  "updated_at": {
+    "$date": "2026-05-01T03:22:08.526Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f41cce8cdba3ffd609b56d"
+  },
+  "key": 3,
+  "order": "3",
+  "ruta": "/admin/accesos",
+  "nombre": "accesos",
+  "descripcion": "accesos",
+  "icon": "pi pi-users",
+  "empresa_id": {
+    "$oid": "69db63e27ee6168f283c87a1"
+  },
+  "created_at": {
+    "$date": "2026-05-01T03:23:58.690Z"
+  },
+  "updated_at": {
+    "$date": "2026-05-01T03:23:58.690Z"
+  },
+  "__v": 0
+}]

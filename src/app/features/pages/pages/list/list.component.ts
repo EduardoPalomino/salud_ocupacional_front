@@ -95,6 +95,7 @@ export class PageListComponent implements OnInit {
         this.pageService.getAll(this.searchTerm,this.empresa_id, page, this.pagination.itemsPerPage).subscribe({
             next: (data: any) => {
                 this.pages = data.response;
+                console.log("RESPONSE loadPages: ",this.pages)
                 this.pagination = {
                   currentPage: data.pagination.currentPage,
                   itemsPerPage: data.pagination.itemsPerPage,
@@ -112,6 +113,7 @@ export class PageListComponent implements OnInit {
         this.empresaService.getAll().subscribe({
             next: (data:any) => {
                 this.empresas = data.response;
+                console.log("RESPONSE loadEmpresas: ",this.empresas)
                 this.selected_empresa = this.empresas.map(empresa => ({
                     label: empresa.nombre,
                     value: empresa._id
@@ -281,7 +283,7 @@ export class PageListComponent implements OnInit {
         });
     }
 
-  formatDate(isoString: string): string {
+  formatDate(isoString: Date): string {
     const date = new Date(isoString);
     return new Intl.DateTimeFormat('es-PE', {
       day: '2-digit',

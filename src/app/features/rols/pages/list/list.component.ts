@@ -73,7 +73,9 @@ export class RolListComponent implements OnInit {
     }
 
     permiso():void{
+      console.log(":::::::::::::::::::::::::::")
       console.log("this.rol_id "+this.rol_id)
+      console.log(":::::::::::::::::::::::::::")
       this.permissionService.permiso(this.rol_id).subscribe((tienePermiso) => {
         if (tienePermiso) {
           // acceso permitido
@@ -273,7 +275,7 @@ export class RolListComponent implements OnInit {
         });
     }
 
-  formatDate(isoString: string): string {
+  formatDate(isoString: Date): string {
     const date = new Date(isoString);
     return new Intl.DateTimeFormat('es-PE', {
       day: '2-digit',

@@ -338,7 +338,7 @@ export class UsuarioListComponent implements OnInit {
         });
     }
 
-  formatDate(isoString: string): string {
+  formatDate(isoString: Date): string {
     const date = new Date(isoString);
     return new Intl.DateTimeFormat('es-PE', {
       day: '2-digit',

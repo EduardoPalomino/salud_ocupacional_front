@@ -15,10 +15,13 @@ export class PermissionService {
   ) {}
 
   permiso(rol_id: string): Observable<boolean> {
+   console.log("ESTAS EN PERMISO  "+rol_id)
     if (!rol_id) {
+      console.log("ESTAS EN PERMISO OP 1  "+rol_id)
       this.router.navigate(['admin/login']);
       return of(false);
     } else {
+      console.log("ESTAS EN PERMISO OP 2  "+rol_id)
       return this.findPermisionRolPage(rol_id);
     }
   }
@@ -27,7 +30,7 @@ export class PermissionService {
     return this.accesoService.getByRolId(rol_id).pipe(
       map((data: any) => {
         console.log('------ findPermisionRolPage-------')
-       // console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
         console.log('------ findPermisionRolPage-------')
         const acceso = data.acceso[0];
         return this.checkAccessPermissions(acceso);

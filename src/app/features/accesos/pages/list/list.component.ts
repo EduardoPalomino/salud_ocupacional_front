@@ -10,6 +10,7 @@ import { Page } from '../../../pages/interfaces/page.interface';
 import {environment} from "../../../../../environments/environment";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {json} from "express";
 
 
 type IPage = Omit<Page,'created_at'|'updated_at'>& {
@@ -73,32 +74,10 @@ export class AccesoListComponent implements OnInit {
     });
   }
 
-  // Getter para acceder fácilmente al FormArray
-  logChange(page: any) {
-   // console.log(`Checkbox ${page.id} cambiado a:`, page.checked);
-    // Aquí puedes llamar a una API, actualizar estado global, etc.
-  }
-
   ngOnInit(): void {
     this.loadRols(1);
     this.loadAccesos();
-    this.loadPages();
-  }
-
-  loadAccesos() {
-    this.accesoService.getAll().subscribe({
-      next: (idata:any) => {
-       var data = idata.acceso;
-        if(data){
-          console.log(2)
-          this.accesos = data;
-          this.filteredAccesos = [...this.accesos];
-        }
-      },
-      error: (err) => {
-        console.error('Error al cargar Accesos:', err);
-      }
-    });
+    this.loadPages(1);
   }
   loadRols(page: number = 1) {
     this.rolService.getAll(this.searchTerm,this.empresa_id, page, this.pagination.itemsPerPage).subscribe({
@@ -116,9 +95,23 @@ export class AccesoListComponent implements OnInit {
       }
     });
   }
-  // Modifica el loadPages para inicializar los checkboxes
+  loadAccesos() {
+    this.accesoService.getAll().subscribe({
+      next: (resp:any) => {
+       var data = resp.response;
+        if(data){
+          this.accesos = data;
+          this.filteredAccesos = [...this.accesos];
+        }
+      },
+      error: (err) => {
+        console.error('Error al cargar Accesos:', err);
+      }
+    });
+  }
+
   loadPages(page: number = 1): void {
-    this.pageService.getAll('', page, 100).subscribe({
+    this.pageService.getAll('',this.empresa_id, page, 100).subscribe({
       next: (data:any) => {
         if(data && data.response){
           var idata = data.response;
@@ -147,24 +140,14 @@ export class AccesoListComponent implements OnInit {
     this.mode = mode;
     this.modalTitle = `${mode} Acceso`;
     this.modalVisible = true;
-
     if (mode === 'Editar' && acceso) {
       this.accesoForm.patchValue({
         _id: acceso._id,
         rol_id: acceso.rol_id,
         page: acceso.page
       });
-
-      // Marcar checkboxes basado en datos existentes
-     /* if (acceso.selectedPages) {
-        this.categories.forEach((category, index) => {
-          const isSelected = acceso.selectedPages.includes(category.key);
-          this.selectedPages.at(index).setValue(isSelected);
-        });
-      }*/
     } else {
       this.accesoForm.reset();
-      // Resetear todos los checkboxes
       this.accesoForm.patchValue({empresa_id:this.empresa_id});
     }
   }
@@ -206,6 +189,7 @@ export class AccesoListComponent implements OnInit {
       const formData = this.accesoForm.value;
       console.log(" JSON.stringify(this.accesos) "+JSON.stringify(this.pages,null,2))
       formData.page = JSON.stringify(this.pages);
+      formData.empresa_id = this.empresa_id;
       if (this.mode === 'Nuevo') {
         this.accesoService.create(formData).subscribe({
           next: (data) => {
@@ -237,28 +221,29 @@ export class AccesoListComponent implements OnInit {
     pagesRegistrado.page = JSON.stringify(pagesRegistrado.page);
     return pagesRegistrado;
   }
-
   onChangeRol(e: any) {
     const rol_id= e.value
-    console.log("rol_id : "+rol_id)
-    this.accesoForm.patchValue({ rol_id: rol_id });
-
     const registro = this.findAcceso(rol_id);
+    this.accesoForm.patchValue({ rol_id: rol_id });
     console.log("registro : "+registro)
     if(registro==0){
       this.mode='Nuevo';
       this.pages = this.ipages;
+      console.log(this.pages)
     }else{
       this.mode='Editar';
       this.accesoForm.value._id=this.accesos.find((acceso:any) => acceso.rol._id == rol_id)?._id!
       const pagesRegistro = this.compararActualizar(this.ipages,registro);
-      this.pages = JSON.parse(pagesRegistro.page);//JSON.parse(this.accesos.find((acceso:any) => acceso.rol._id == rol_id)?.page!);
+      this.pages = JSON.parse(pagesRegistro.page);
+      JSON.parse(this.accesos.find((acceso:any) => acceso.rol._id == rol_id)?.page!);
       this.findChecked();
 
     }
   }
   private findAcceso(rol_id: string): Acceso | any {
+    console.log("----ESTOS SON LOS ACCESOS DE FIND ACCESO CON ROL_ID : "+rol_id)
     console.log(JSON.stringify(this.accesos,null,2))
+    console.log("----ESTOS SON LOS ACCESOS DE FIND ACCESO CON ROL_ID : "+rol_id)
     return this.accesos.find((p:any) =>p.rol?._id == rol_id) ??0;
   }
   mensajeConfirmacion(acceso: Acceso, mensaje: String) {
@@ -270,6 +255,7 @@ export class AccesoListComponent implements OnInit {
   }
   checkedPage(e:any,index:number){
     this.pages[index].checked = !this.pages[index].checked;
+    console.log(this.pages)
     this.findChecked();
   }
   findChecked(){
